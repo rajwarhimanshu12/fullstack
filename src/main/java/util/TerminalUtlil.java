@@ -18,7 +18,6 @@ public class TerminalUtlil {
         }
     }
 
-
     public static void printResults(Process process) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line = "";
