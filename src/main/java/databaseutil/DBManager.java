@@ -6,11 +6,11 @@ import java.sql.DriverManager;
 
 public class DBManager {
 
+    private static Connection con;
+
     private DBManager(){}
 
     private static DBManager  dbmanager;
-
-    private static Connection con = null;
 
     public static DBManager getInstance(){
         if (dbmanager == null){
@@ -37,4 +37,13 @@ public class DBManager {
         return con;
     }
 
+    public static void closeConnection() throws SQLException {
+            try {
+                con.close();
+                System.out.println("Database Connection Closed Successfully");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                System.out.println("Connection NOT closed");
+            }
+    }
 }
